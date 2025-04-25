@@ -1,0 +1,56 @@
+html {
+    background-color: #111827;
+    font-family: "Merriweather Sans", serif;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    color: white;
+}
+
+a {
+    color: blue;
+}
+
+#about-section {
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+#about-section h1 {
+    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+
+#about-section .headshot {
+    width: 20vw;
+    height: 20vw;
+    overflow: hidden;
+    margin-top: 1rem;
+    margin-bottom: 37px;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#about-section .headshot img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+#about-section .headshot img:hover {
+    transform: scale(1.2);
+}
+
