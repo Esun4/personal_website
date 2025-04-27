@@ -12,10 +12,6 @@ p {
     color: white;
 }
 
-a {
-    color: blue;
-}
-
 #about-section {
     min-height: 100vh;
     flex-direction: column;
@@ -33,8 +29,10 @@ a {
 }
 
 #about-section .headshot {
-    width: 20vw;
-    height: 20vw;
+    width: 30%;
+    height: 30%;
+    max-width: 350px;
+    max-height: 350px;
     overflow: hidden;
     margin-top: 1rem;
     margin-bottom: 37px;
@@ -54,3 +52,26 @@ a {
     transform: scale(1.2);
 }
 
+#about-section .links {
+    font-size: 2.25rem;
+}
+
+#about-section .links a {
+    padding: 0;
+    margin: 0.3vw;
+    text-decoration: none;
+}
+
+#about-section .links a i {
+    transition: transform 0.3s, color 0.3s;
+}
+
+#about-section .links a:hover i {
+    color: 	#38BDF8;
+    transform: scale(1.2);
+}
+
+#about-section .links i {
+    color: #8fa9cc;
+    font-weight: 500;
+}
