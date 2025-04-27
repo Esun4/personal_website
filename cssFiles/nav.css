@@ -48,6 +48,7 @@ li button:hover {
     color: white;
     text-align: center;
     text-decoration: none;
+    margin-left: 2px;
 }
 
 .name:hover {
@@ -57,5 +58,8 @@ li button:hover {
 
 nav {
     position: fixed;
-    width: 100%;
+    width: 87%;
+    left: 50%;
+    transform: translateX(-50%);
+
 }

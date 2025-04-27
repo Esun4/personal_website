@@ -1,7 +1,6 @@
 To Do:
 
 create the different sections
-create the links that will lead to the different sections
 
 sections include (decide if they should be on the same page or open to a new page)
 
