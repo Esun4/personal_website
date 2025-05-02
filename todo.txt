@@ -2,8 +2,7 @@ To Do:
 
 create the different sections
 
-sections include (decide if they should be on the same page or open to a new page)
 
-projects
 skills
 resumes
+photography (separate page)
