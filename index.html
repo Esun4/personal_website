@@ -11,22 +11,26 @@
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/f44c19555e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/nav.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="output.css">
     <title>Ethan Sun</title>
 </head>
 
 <body>
-    <div id="nav-bar">
+    <nav>
+        <ul>
+            <li><a class="name">Ethan Sun</a></li>
+            <li style="float: right"><a href="">Photography</a></li>
+            <li style="float: right"><a href="#resume-section">Resumes</a></li>
+            <li style="float: right"><a href="#skills-section">Skills</a></li>
+            <li style="float: right"><a href="#projects-section">Projects</a></li>
+            <li style="float: right"><a href="#about-section">About Me</a></li>
+        </ul>
 
-    </div>
-
-    <script>
-        $(function () {
-            $("#nav-bar").load("nav.html");
-        });
-    </script>
+    </nav>
 
     <section id="about-section">
         <h1>Hi, I'm Ethan!</h1>
@@ -62,7 +66,8 @@
                 <img src="/images/lazy_paste.png" alt="LazyPaste Logo" class="card-img">
                 <div class="card-text">
                     <h3>LazyPaste</h3>
-                    <p>LazyPaste is your ultimate productivity companion. Whether you're drafting professional documents, taking detailed notes, or
+                    <p>LazyPaste is your ultimate productivity companion. Whether you're drafting professional
+                        documents, taking detailed notes, or
                         brainstorming creative ideas, LazyPaste handles the heavy lifting.</p>
                     <a href="https://github.com/VinierCape43081/LazyTyper" target="_blank">
                         <button class="card-button">View Project</button>
@@ -73,7 +78,8 @@
                 <img src="/images/chess4all.png" alt="chess4all Logo" class="card-img1">
                 <div class="card-text">
                     <h3>chess4all</h3>
-                    <p>chess4all is a website for chess lovers to study and sharpen their skills. It offers detailed endgame walkthroughs, tactical puzzles, and classic games played by chess masters.</p>
+                    <p>chess4all is a website for chess lovers to study and sharpen their skills. It offers detailed
+                        endgame walkthroughs, tactical puzzles, and classic games played by chess masters.</p>
                     <a href="https://github.com/MHS-CSCE/sdp-chess4all" target="_blank">
                         <button class="card-button">View Project</button>
                     </a>
