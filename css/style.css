@@ -1,13 +1,6 @@
 html {
     background-color: #111827;
     font-family: "Merriweather Sans", serif;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    padding: 0;
-    margin: 0;
 }
 
 h1 {
@@ -293,69 +286,70 @@ section h2::after {
     justify-content: center;
     align-items: stretch;
 }
+
 #photography-categories {
-  padding: 6rem 2rem 4rem;
+    padding: 6rem 2rem 4rem;
 }
 
 #photography-categories h1 {
-  font-size: 3rem;
-  margin-bottom: 4rem;
-  margin-top: 0;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    margin-top: 0;
 }
 
 .category-container {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .category-card {
-  background-color: #1e293b;
-  border-radius: 1rem;
-  overflow: hidden;
-  width: 30rem;
-  height: 20rem;
-  transition: transform 0.3s;
-  text-decoration: none;
-  color: white;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
+    background-color: #1e293b;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 30rem;
+    height: 20rem;
+    transition: transform 0.3s;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
 }
 
 .category-card img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.85;
-  transition: opacity 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: opacity 0.3s;
 }
 
 .category-card:hover img {
-  opacity: 1;
+    opacity: 1;
 }
 
 .category-card h2 {
-  position: relative;
-  z-index: 1;
-  padding: 1.5rem;
-  font-size: 2rem;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.4);
-  margin: 0;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+    font-size: 2rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .category-card:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 #photography-section {
@@ -366,18 +360,29 @@ section h2::after {
 
 #photography-section h2 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-top: 0;
     color: #333;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-bottom: 2.4rem;
 }
 
-.gallery {
+.gallery-prom {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
     width: 100%;
     max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.gallery-robotics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
 }
 
 .photo-card {
@@ -395,7 +400,7 @@ section h2::after {
 .photo-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
     display: block;
 }
@@ -407,4 +412,29 @@ section h2::after {
 
 .photo-card:hover img {
     transform: scale(1.05);
+}
+
+.buttons {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.back-button {
+    background-color: #0284c7;
+    color: white;
+    border: none;
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.buttons{
+    justify-content: start;
+}
+
+.back-button:hover {
+    background-color: #0369a1;
 }

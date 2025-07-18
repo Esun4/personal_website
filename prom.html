@@ -8,15 +8,18 @@
         href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="navbar"></div>
     <section id="photography-section">
         <h2>Prom Photos</h2>
-        <div class="gallery">
+        <div class="gallery-prom">
             <div class="photo-card">
                 <img src="images/photography/prom/IMG_7273.JPG">
             </div>
@@ -69,12 +72,11 @@
                 <img src="images/photography/prom/IMG_7797.JPG">
             </div>
         </div>
+        <div class="buttons">
+            <a class="back-button" href="index.html">Home</a>
+            <a class="back-button" href="photography.html">Back</a>
+        </div>
     </section>
-    <script>
-        $(function () {
-            $("#navbar").load("nav.html");
-        });
-    </script>
 </body>
 
 </html>
