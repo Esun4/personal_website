@@ -286,3 +286,67 @@ section h2::after {
     justify-content: center;
     align-items: stretch;
 }
+#photography-categories {
+  padding: 6rem 2rem 4rem;
+}
+
+#photography-categories h1 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  margin-top: 0;
+}
+
+.category-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.category-card {
+  background-color: #1e293b;
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 30rem;
+  height: 20rem;
+  transition: transform 0.3s;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.category-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.category-card:hover img {
+  opacity: 1;
+}
+
+.category-card h2 {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+}

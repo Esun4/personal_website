@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>Photography</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/photography.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <section id="photography-categories">
+        <h1>Photography</h1>
+        <div class="category-container">
+            <a href="prom.html" class="category-card">
+                <img src="images/photography/prom/IMG_7294.JPG" alt="Prom Preview">
+                <h2>Prom</h2>
+            </a>
+            <a href="robotics.html" class="category-card">
+                <img src="images/photography/robotics/IMG_6519.JPG" alt="Robotics Preview">
+                <h2>Robotics</h2>
+            </a>
+        </div>
+    </section>
+    <script>
+        $(function () {
+            $("#navbar").load("nav.html");
+        });
+    </script>
+</body>
+
+</html>

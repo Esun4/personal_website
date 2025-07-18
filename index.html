@@ -19,28 +19,20 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a class="name">Ethan Sun</a></li>
-            <li style="float: right"><a href="">Photography</a></li>
-            <li style="float: right"><a href="#resumes-section">Resumes</a></li>
-            <li style="float: right"><a href="#skills-section">Skills</a></li>
-            <li style="float: right"><a href="#projects-section">Projects</a></li>
-            <li style="float: right"><a href="#about-section">About Me</a></li>
-        </ul>
-
-    </nav>
-
+    <div id="navbar"></div>
     <section id="about-section">
         <h1>Hi, I'm Ethan!</h1>
         <div class="headshot">
             <img src="images/self.jpg" alt="Headshot">
         </div>
         <div class="bio">
-            <p>Hi. I am currently a grade 12 student at Merivale High School enrolled in the IBDP. In June, I will be
-                graduating and continuing my studies at the University of Waterloo, where I will be studying Computer
+            <p>Hi. I am currently a grade 12 student at Merivale High School enrolled in the IBDP. In June, I will
+                be
+                graduating and continuing my studies at the University of Waterloo, where I will be studying
+                Computer
                 Science.</p>
-            <p>Besides robotics, baseball and working out I have a passion for computer science and machine learning.
+            <p>Besides robotics, baseball and working out I have a passion for computer science and machine
+                learning.
                 This website will share my passion with others.</p>
             <br>
             <p>If you want to connect with me, here are my socials:</p>
@@ -123,6 +115,11 @@
         </div>
 
     </section>
+    <script>
+        $(function () {
+            $("#navbar").load("nav.html");
+        });
+    </script>
 
 </body>
 
