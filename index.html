@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/f44c19555e.js" crossorigin="anonymous"></script>
@@ -17,90 +17,130 @@
     <title>Ethan Sun</title>
 </head>
 
-<body>
+<body class="valorant">
     <div id="navbar"></div>
-    <section id="about-section">
-        <h1>Hi, I'm Ethan!</h1>
-        <div class="headshot">
-            <img src="images/self.jpg" alt="Headshot">
-        </div>
-        <div class="bio">
-            <p>Hi. I am a first year computer science student at the University of Waterloo.</p>
-            <p>Besides robotics, baseball and working out I have a passion for computer science and machine
-                learning.
-                This website will be used to share my passion with others.</p>
-            <br>
-            <p>If you want to connect with me, here are my socials:</p>
-
-        </div>
-        <div class="links">
-            <a href="https://www.instagram.com/ethan_sunnnn/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/ethan-sun-a86975320/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/Esun4" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github"></i>
-            </a>
-        </div>
-    </section>
-    <div class="divider"></div>
-    <section id="projects-section">
-        <h2>Projects</h2>
-        <div class="project-info">
-            <div class="card">
-                <img src="images/lazy_paste.png" alt="LazyPaste Logo" class="card-img">
-                <div class="card-text">
-                    <h3>LazyPaste</h3>
-                    <p>LazyPaste is your ultimate productivity companion. Whether you're drafting professional
-                        documents, taking detailed notes, or
-                        brainstorming creative ideas, LazyPaste handles the heavy lifting.</p>
-                    <a href="https://github.com/VinierCape43081/LazyTyper" target="_blank" rel="noopener noreferrer">
-                        <button class="card-button">View Project</button>
+    <main class="lobby-main">
+        <section id="about-section" class="lobby-hero">
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <span class="hero-chip">ONLINE</span>
+                    <span class="hero-level">LEVEL 18</span>
+                </div>
+                <div class="hero-portrait">
+                    <img src="images/self.jpg" alt="Headshot">
+                </div>
+                <div class="hero-card-footer">
+                    <p class="hero-name">Ethan Sun</p>
+                    <p class="hero-tagline">Computer Science @Waterloo</p>
+                    <p class="hero-tagline">Term: 1B</p>
+                </div>
+                <div class="hero-card-actions">
+                    <a class="primary-btn" href="#projects-section">Start</a>
+                    <a class="ghost-btn" href="resumes/Ethan_Sun_Resume.pdf" target="_blank"
+                        rel="noopener noreferrer">Resume</a>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>Hi, I'm Ethan.</h1>
+                <p>I'm A first year computer science student at the University of Waterloo. Besides robotics, baseball and working out I have a passion for computer science and machine learning. This website will be used to share my passion with others.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-label">Hobbies</span>
+                        <span class="stat-value">Baseball, Robotics, Lifting, Coding</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Status</span>
+                        <span class="stat-value">Looking for Summer 2026 Internships</span>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="https://www.instagram.com/ethan_sunnnn/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ethan-sun-a86975320/" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Esun4" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i>
                     </a>
                 </div>
             </div>
-            <div class="card">
-                <img src="images/chess4all.png" alt="chess4all Logo" class="card-img1">
-                <div class="card-text">
-                    <h3>chess4all</h3>
-                    <p>chess4all is a website for chess lovers to study and sharpen their skills. It offers detailed
-                        endgame walkthroughs, tactical puzzles, and classic games played by chess masters.</p>
-                    <a href="https://github.com/MHS-CSCE/sdp-chess4all" target="_blank" rel="noopener noreferrer">
-                        <button class="card-button">View Project</button>
-                    </a>
+        </section>
+        <section id="projects-section" class="lobby-section">
+            <div class="section-header">
+                <h2>Projects</h2>
+                <p>Selected missions from the build queue.</p>
+            </div>
+            <div class="project-info lobby-grid">
+                <div class="card">
+                    <img src="images/lazy_paste.png" alt="LazyPaste Logo" class="card-img">
+                    <div class="card-text">
+                        <h3>LazyPaste</h3>
+                        <p>LazyPaste is your ultimate productivity companion. Whether you're drafting professional
+                            documents, taking detailed notes, or brainstorming creative ideas, LazyPaste handles the
+                            heavy lifting.</p>
+                        <a href="https://github.com/VinierCape43081/LazyTyper" target="_blank"
+                            rel="noopener noreferrer">
+                            <button class="card-button">View Project</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/chess4all.png" alt="chess4all Logo" class="card-img1">
+                    <div class="card-text">
+                        <h3>chess4all</h3>
+                        <p>chess4all is a website for chess lovers to study and sharpen their skills. It offers detailed
+                            endgame walkthroughs, interactive puzzles, and classic games played by chess masters.</p>
+                        <a href="https://github.com/MHS-CSCE/sdp-chess4all" target="_blank"
+                            rel="noopener noreferrer">
+                            <button class="card-button">View Project</button>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="skills-section">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <i class="fa-brands fa-python"></i>
-            <i class="fa-brands fa-java"></i>
-            <i class="fa-brands fa-html5"></i>
-            <i class="fa-brands fa-css3-alt"></i>
-            <i class="fa-brands fa-square-js"></i>
-            <i class="fa-brands fa-figma"></i>
-        </div>
-    </section>
-    <div class="divider"></div>
-    <section id="resumes-section">
-        <h2>Resumes</h2>
-        <div class="resumes-container">
-            <div class="card">
-                <div class="card-text">
-                    <h3>SWE Resume</h3>
-                    <img src="images/programming_resume.jpg" alt="Programming Resume Preview" class="card-img2">
-                    <a href="resumes/Ethan_Sun_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                        <button class="card-button">View Resume</button>
-                    </a>
+        </section>
+        <section id="skills-section" class="lobby-section">
+            <div class="section-header">
+                <h2>Skills</h2>
+                <p>Loadout highlights.</p>
+            </div>
+            <div class="skills-container">
+                <i class="fa-brands fa-python"></i>
+                <i class="fa-brands fa-java"></i>
+                <i class="fa-brands fa-html5"></i>
+                <i class="fa-brands fa-css3-alt"></i>
+                <i class="fa-brands fa-square-js"></i>
+                <i class="fa-brands fa-figma"></i>
+            </div>
+        </section>
+        <section id="resumes-section" class="lobby-section">
+            <div class="section-header">
+                <h2>Resume</h2>
+            </div>
+            <div class="resumes-container lobby-grid">
+                <div class="card">
+                    <div class="card-text resume-card">
+                        <div class="resume-info">
+                            <span class="resume-chip">PDF</span>
+                            <div class="resume-title-row">
+                                <h3>SWE Resume</h3>
+                                <a href="resumes/Ethan_Sun_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                                    <button class="card-button">View Resume</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resume-preview">
+                            <div class="resume-frame">
+                                <img src="images/programming_resume.jpg" alt="Programming Resume Preview"
+                                    class="card-img2">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </section>
+        </section>
+    </main>
     <script>
         $(function () {
             $("#navbar").load("nav.html");
