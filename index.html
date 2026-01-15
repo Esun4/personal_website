@@ -12,6 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/f44c19555e.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/nav.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
     <title>Ethan Sun</title>
@@ -143,7 +144,11 @@
     </main>
     <script>
         $(function () {
-            $("#navbar").load("nav.html");
+            $("#navbar").load("nav.html", function () {
+                if (window.initNavTabs) {
+                    window.initNavTabs();
+                }
+            });
         });
     </script>
 

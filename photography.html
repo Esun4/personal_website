@@ -9,6 +9,7 @@
         rel="stylesheet">
     <title>Photography</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/nav.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/photography.css">
@@ -31,7 +32,11 @@
     </section>
     <script>
         $(function () {
-            $("#navbar").load("nav.html");
+            $("#navbar").load("nav.html", function () {
+                if (window.initNavTabs) {
+                    window.initNavTabs();
+                }
+            });
         });
     </script>
 </body>
