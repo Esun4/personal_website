@@ -29,7 +29,10 @@
                     tab.classList.add("active");
                     matched = true;
                 }
-            } else if (href === currentPath) {
+                return;
+            }
+
+            if (!currentHash && href === currentPath) {
                 tab.classList.add("active");
                 matched = true;
             }
