@@ -106,7 +106,7 @@ a {
     display: grid;
     grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
     gap: 3.5rem;
-    align-items: center;
+    align-items: start;
 }
 
 .hero-card {
@@ -233,6 +233,13 @@ a {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    margin-top: -12px;
+}
+
+.hero-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .hero-stats {
@@ -289,10 +296,64 @@ a {
     border-color: rgba(72, 224, 214, 0.6);
 }
 
+.hero-panel {
+    background: rgba(8, 22, 35, 0.6);
+    border: 1px solid rgba(120, 170, 210, 0.2);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+}
+
+.skills-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: calc(50% - 0.75rem);
+}
+
+.resume-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.4rem;
+    width: calc(50% - 0.75rem);
+    align-self: stretch;
+}
+
+.resume-info-panel {
+    padding: 1rem 1.2rem;
+    max-width: 230px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.skills-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.skills-header h3 {
+    font-size: 1.4rem;
+}
+
+.skills-subtitle {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
 .lobby-section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+
+#projects-section {
+    margin-top: 8rem;
 }
 
 .section-header {
@@ -379,32 +440,22 @@ a {
     flex-direction: column;
     gap: 1.4rem;
     text-align: left;
+    margin-left: 0.6rem;
 }
 
 .resume-info h3 {
     margin: 0;
 }
 
-.resume-title-row {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-}
-
-.resume-title-row .card-button {
-    padding: 0.45rem 0.9rem;
-    font-size: 0.85rem;
-    white-space: nowrap;
-}
-
 .resume-preview {
-    width: 200px;
+    width: 210px;
     flex-shrink: 0;
+    align-self: center;
+    margin-left: auto;
 }
 
-#resumes-section .lobby-grid {
-    justify-items: start;
+.resume-panel .resume-preview {
+    margin-left: 1.2rem;
 }
 
 .resume-chip {
@@ -433,7 +484,7 @@ a {
     border-radius: 16px;
     border: 1px solid rgba(120, 170, 210, 0.35);
     background: rgba(8, 22, 35, 0.7);
-    transform: rotate(-5deg);
+    transform: rotate(-8deg);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -447,8 +498,17 @@ a {
         align-items: flex-start;
     }
 
+    .hero-row {
+        flex-direction: column;
+    }
+
+    .skills-panel,
+    .resume-panel {
+        width: 100%;
+    }
+
     .resume-preview {
-        width: 180px;
+        width: 160px;
     }
 }
 
@@ -485,13 +545,13 @@ a {
 #skills-section .skills-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 2.5rem;
+    gap: 0.75rem;
+    font-size: 2.1rem;
 }
 
 #skills-section .skills-container i {
     transition: transform 0.3s, color 0.3s, border 0.3s;
-    padding: 0.6rem 0.7rem;
+    padding: 0.45rem 0.55rem;
     border-radius: 12px;
     background: rgba(8, 22, 35, 0.7);
     border: 1px solid rgba(120, 170, 210, 0.2);
