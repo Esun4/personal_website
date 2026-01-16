@@ -4,13 +4,63 @@
         <span class="crumb strong">LOBBY</span>
     </div>
     <div class="topbar-center">
-        <a class="mode-tab" href="index.html#about-section">Overview</a>
+        <a class="mode-tab" href="index.html">Home</a>
+        <button class="mode-tab skills-trigger" type="button">Skills</button>
         <a class="mode-tab" href="index.html#projects-section">Projects</a>
-        <a class="mode-tab" href="index.html#resumes-section">Resume</a>
+        <a class="mode-tab" href="resumes/Ethan_Sun_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         <a class="mode-tab" href="photography.html">Photography</a>
+        <button class="mode-tab contact-trigger" type="button">Contact</button>
     </div>
     <div class="topbar-right">
         <span class="status-dot"></span>
         <span class="status-text">Looking for Summer 2026 Internships</span>
     </div>
 </nav>
+<div class="contact-modal" id="contact-modal" aria-hidden="true" role="dialog">
+    <div class="contact-modal__backdrop" data-close="true"></div>
+    <div class="contact-modal__panel">
+        <div class="contact-modal__header">
+            <h3>Connect</h3>
+            <button class="contact-modal__close" type="button" data-close="true">Close</button>
+        </div>
+        <div class="contact-modal__links">
+            <a href="mailto:ethansun44@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <a href="https://www.instagram.com/ethan_sunnnn/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/in/ethan-sun-a86975320/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/Esun4" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="skills-modal" id="skills-modal" aria-hidden="true" role="dialog">
+    <div class="skills-modal__backdrop" data-close="true"></div>
+    <div class="skills-modal__panel">
+        <div class="skills-modal__header">
+            <h3>Skills</h3>
+            <button class="skills-modal__close" type="button" data-close="true">Close</button>
+        </div>
+        <div class="skills-modal__list">
+            <span>Python</span>
+            <span>Java</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Docker</span>
+            <span>PostgreSQL</span>
+            <span>Linux</span>
+            <span>Bash</span>
+            <span>Figma</span>
+        </div>
+    </div>
+</div>

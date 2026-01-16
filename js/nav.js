@@ -43,6 +43,72 @@
         }
     };
 
+    const bindSkillsModal = () => {
+        const modal = document.getElementById("skills-modal");
+        const trigger = document.querySelector(".skills-trigger");
+        if (!modal || !trigger) {
+            return;
+        }
+
+        const closeModal = () => {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+        };
+
+        const openModal = () => {
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+        };
+
+        trigger.addEventListener("click", openModal);
+        modal.addEventListener("click", (event) => {
+            if (event.target.matches("[data-close='true']")) {
+                closeModal();
+            }
+        });
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && modal.classList.contains("is-open")) {
+                closeModal();
+            }
+        });
+    };
+
+    const bindContactModal = () => {
+        const modal = document.getElementById("contact-modal");
+        const triggers = document.querySelectorAll(".contact-trigger");
+        if (!modal || !triggers.length) {
+            return;
+        }
+
+        const closeModal = () => {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+        };
+
+        const openModal = () => {
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+        };
+
+        triggers.forEach((trigger) => {
+            trigger.addEventListener("click", openModal);
+        });
+        modal.addEventListener("click", (event) => {
+            if (event.target.matches("[data-close='true']")) {
+                closeModal();
+            }
+        });
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && modal.classList.contains("is-open")) {
+                closeModal();
+            }
+        });
+    };
+
     const bindNavTabs = () => {
         if (window.__navTabsBound) {
             setActiveTab();
@@ -59,6 +125,8 @@
         window.addEventListener("hashchange", setActiveTab);
         window.addEventListener("popstate", setActiveTab);
         setActiveTab();
+        bindSkillsModal();
+        bindContactModal();
     };
 
     window.initNavTabs = bindNavTabs;

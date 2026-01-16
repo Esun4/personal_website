@@ -47,6 +47,14 @@
     text-decoration: none;
     position: relative;
     padding-bottom: 0.3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
 }
 
 .mode-tab::after {

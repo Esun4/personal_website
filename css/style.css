@@ -107,6 +107,7 @@ a {
     grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
     gap: 3.5rem;
     align-items: start;
+    margin-top: 24px;
 }
 
 .hero-card {
@@ -227,6 +228,11 @@ a {
 .ghost-btn:hover {
     border-color: rgba(72, 224, 214, 0.6);
     color: #eaf8ff;
+}
+
+.contact-trigger {
+    background: transparent;
+    cursor: pointer;
 }
 
 .hero-content {
@@ -490,6 +496,122 @@ a {
 
 .resume-frame img {
     border-radius: 12px;
+}
+
+.contact-modal,
+.skills-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.contact-modal.is-open,
+.skills-modal.is-open {
+    display: flex;
+}
+
+.contact-modal__backdrop,
+.skills-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 11, 20, 0.75);
+    backdrop-filter: blur(6px);
+}
+
+.contact-modal__panel,
+.skills-modal__panel {
+    position: relative;
+    z-index: 1;
+    width: min(420px, 90vw);
+    background: rgba(10, 26, 41, 0.95);
+    border: 1px solid rgba(120, 170, 210, 0.35);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.5);
+}
+
+.contact-modal__header,
+.skills-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.contact-modal__header h3,
+.skills-modal__header h3 {
+    font-size: 1.6rem;
+}
+
+.contact-modal__close,
+.skills-modal__close {
+    border: 1px solid rgba(120, 170, 210, 0.4);
+    background: transparent;
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Teko", sans-serif;
+    cursor: pointer;
+}
+
+.skills-modal__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.skills-modal__list span {
+    padding: 0.4rem 0.6rem;
+    border-radius: 10px;
+    border: 1px solid rgba(120, 170, 210, 0.2);
+    background: rgba(8, 22, 35, 0.65);
+    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.skills-modal__list span:hover {
+    transform: translateY(-2px);
+    border-color: rgba(72, 224, 214, 0.6);
+    color: var(--teal);
+}
+
+.contact-modal__links {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.contact-modal__links a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 12px;
+    border: 1px solid rgba(120, 170, 210, 0.25);
+    background: rgba(8, 22, 35, 0.65);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.05rem;
+}
+
+.contact-modal__links a i {
+    font-size: 1.4rem;
+}
+
+.contact-modal__links a:hover {
+    border-color: rgba(72, 224, 214, 0.55);
+    color: var(--teal);
+}
+
+.modal-open {
+    overflow: hidden;
 }
 
 @media (max-width: 900px) {
