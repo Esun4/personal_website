@@ -1,0 +1,556 @@
+/* ---------------------------------------------------------------
+   motion.css — additive layer
+   Pairs with motion.js. Nothing in here overrides existing rules
+   except where noted; original style.css remains the source of truth.
+   --------------------------------------------------------------- */
+
+/* Boot sequence — pre-anim state is applied via [data-boot="pending"]
+   on <html> so there is no FOUC. motion.js removes it once classes are
+   ready, then drives the reveal. */
+html[data-boot="pending"] body {
+    opacity: 0;
+}
+
+/* Disable the original generic rise-in once we own the choreography. */
+html.boot-controlled .lobby-main > section {
+    animation: none !important;
+    opacity: 1;
+}
+
+/* ---------- Boot scanline sweep ---------- */
+.boot-scanline {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.boot-scanline.is-active {
+    opacity: 1;
+}
+
+.boot-scanline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -20vh;
+    height: 40vh;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(72, 224, 214, 0.04) 30%,
+        rgba(72, 224, 214, 0.22) 50%,
+        rgba(72, 224, 214, 0.04) 70%,
+        transparent 100%);
+    filter: blur(2px);
+    transform: translateY(0);
+}
+
+.boot-scanline.is-active::before {
+    animation: boot-sweep 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.boot-scanline::after {
+    /* thin bright leading edge */
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: rgba(72, 224, 214, 0.85);
+    box-shadow: 0 0 12px rgba(72, 224, 214, 0.9);
+    transform: translateY(-10vh);
+    opacity: 0;
+}
+
+.boot-scanline.is-active::after {
+    animation: boot-line 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes boot-sweep {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(140vh); }
+}
+
+@keyframes boot-line {
+    0%   { transform: translateY(-10vh); opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* ---------- Boot: nav drops in ---------- */
+html.boot-controlled .topbar {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms,
+                opacity 320ms ease 120ms;
+}
+
+html.boot-controlled.boot-step-1 .topbar {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ---------- Boot: status text types ---------- */
+html.boot-controlled .status-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    transition: max-width 700ms steps(38, end) 480ms;
+}
+
+html.boot-controlled.boot-step-1 .status-text {
+    max-width: 30rem;
+}
+
+html.boot-controlled .status-dot {
+    opacity: 0;
+    transition: opacity 200ms ease 460ms;
+}
+
+html.boot-controlled.boot-step-1 .status-dot {
+    opacity: 1;
+    animation: status-pulse 2.6s ease-in-out 1.4s infinite;
+}
+
+@keyframes status-pulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(72, 224, 214, 0.6); }
+    50%      { box-shadow: 0 0 18px rgba(72, 224, 214, 1); }
+}
+
+/* ---------- Boot: hero card assembles ---------- */
+html.boot-controlled #about-section {
+    --boot-delay: 0ms;
+}
+
+html.boot-controlled .hero-card {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    transition: opacity 480ms ease, transform 620ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: 360ms;
+}
+
+html.boot-controlled .hero-card-header,
+html.boot-controlled .hero-portrait,
+html.boot-controlled .hero-card-footer,
+html.boot-controlled .hero-card-actions {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 420ms ease, transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html.boot-controlled .hero-card-header  { transition-delay: 720ms; }
+html.boot-controlled .hero-portrait     { transition-delay: 820ms; }
+html.boot-controlled .hero-card-footer  { transition-delay: 920ms; }
+html.boot-controlled .hero-card-actions { transition-delay: 1020ms; }
+
+html.boot-controlled.boot-step-2 .hero-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+html.boot-controlled.boot-step-2 .hero-card-header,
+html.boot-controlled.boot-step-2 .hero-portrait,
+html.boot-controlled.boot-step-2 .hero-card-footer,
+html.boot-controlled.boot-step-2 .hero-card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Boot: hero text + panels ---------- */
+html.boot-controlled .hero-content > * {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 480ms ease, transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+html.boot-controlled .hero-content > *:nth-child(1) { transition-delay: 880ms; }
+html.boot-controlled .hero-content > *:nth-child(2) { transition-delay: 960ms; }
+html.boot-controlled .hero-content > *:nth-child(3) { transition-delay: 1040ms; }
+html.boot-controlled .hero-content > *:nth-child(4) { transition-delay: 1120ms; }
+html.boot-controlled .hero-content > *:nth-child(5) { transition-delay: 1200ms; }
+
+html.boot-controlled.boot-step-2 .hero-content > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =============================================================
+   Hero card — parallax tilt + portrait depth
+   ============================================================= */
+
+.lobby-hero {
+    perspective: 1400px;
+}
+
+.hero-card {
+    /* set by JS; CSS fallback keeps things flat */
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    --tilt-strength: 1;
+    transform-style: preserve-3d;
+    transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+}
+
+.hero-card.is-tilting {
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform 80ms linear;
+}
+
+/* Specular sheen that tracks the cursor */
+.hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx) var(--my),
+        rgba(72, 224, 214, 0.18),
+        rgba(72, 224, 214, 0.06) 30%,
+        transparent 55%);
+    opacity: 0;
+    transition: opacity 220ms ease;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 2;
+}
+
+.hero-card.is-tilting::before {
+    opacity: 1;
+}
+
+/* Chips and portrait pop forward in z */
+.hero-card-header,
+.hero-card-footer,
+.hero-card-actions {
+    position: relative;
+    transform: translateZ(20px);
+}
+
+.hero-chip,
+.hero-level {
+    transform: translateZ(30px);
+    transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero-card.is-tilting .hero-chip {
+    transform: translateZ(38px) translate3d(calc(var(--ry) * -0.6), calc(var(--rx) * 0.6), 0);
+}
+.hero-card.is-tilting .hero-level {
+    transform: translateZ(38px) translate3d(calc(var(--ry) * -0.4), calc(var(--rx) * 0.4), 0);
+}
+
+/* ---- Portrait depth stack ---- */
+.hero-portrait {
+    position: relative;
+    transform: translateZ(15px);
+    isolation: isolate;
+}
+
+/* halo glow behind the photo */
+.hero-portrait .portrait-glow {
+    position: absolute;
+    inset: -14%;
+    background: radial-gradient(closest-side, rgba(72, 224, 214, 0.45), rgba(72, 224, 214, 0.05) 60%, transparent 75%);
+    filter: blur(18px);
+    opacity: 0.45;
+    z-index: 0;
+    transform: translate3d(calc(var(--ry) * 0.6), calc(var(--rx) * -0.6), 0);
+    transition: transform 80ms linear, opacity 320ms ease;
+    pointer-events: none;
+}
+
+.hero-card.is-tilting .hero-portrait .portrait-glow {
+    opacity: 0.65;
+}
+
+.hero-portrait img {
+    position: relative;
+    z-index: 1;
+    transform: translate3d(calc(var(--ry) * -0.4), calc(var(--rx) * 0.4), 0);
+    transition: transform 80ms linear;
+}
+
+/* foreground scanline overlay */
+.hero-portrait .portrait-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+        repeating-linear-gradient(180deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0) 3px,
+            rgba(120, 200, 220, 0.05) 3px,
+            rgba(120, 200, 220, 0.05) 4px),
+        linear-gradient(180deg, rgba(6, 19, 33, 0) 60%, rgba(6, 19, 33, 0.55) 100%);
+    transform: translate3d(calc(var(--ry) * -1.1), calc(var(--rx) * 1.1), 0);
+    transition: transform 80ms linear;
+}
+
+/* corner brackets — pure CSS, drawn from the image */
+.hero-portrait .portrait-corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid rgba(72, 224, 214, 0.7);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.9;
+}
+.hero-portrait .portrait-corner.tl { top: 8px; left: 8px;  border-right: none;  border-bottom: none; }
+.hero-portrait .portrait-corner.tr { top: 8px; right: 8px; border-left: none;   border-bottom: none; }
+.hero-portrait .portrait-corner.bl { bottom: 8px; left: 8px;  border-right: none; border-top: none; }
+.hero-portrait .portrait-corner.br { bottom: 8px; right: 8px; border-left: none;  border-top: none; }
+
+/* On tilt, brackets push slightly more for parallax */
+.hero-card.is-tilting .hero-portrait .portrait-corner {
+    transform: translate3d(calc(var(--ry) * -1.6), calc(var(--rx) * 1.6), 0);
+    transition: transform 80ms linear;
+}
+
+/* Idle micro-drift on touch devices (no hover): tiny, slow */
+@media (hover: none) {
+    .hero-card {
+        animation: idle-drift 9s ease-in-out infinite;
+    }
+}
+@keyframes idle-drift {
+    0%, 100% { transform: rotateX(0.4deg) rotateY(-0.6deg); }
+    50%      { transform: rotateX(-0.4deg) rotateY(0.6deg); }
+}
+
+/* =============================================================
+   Scroll reveals
+   ============================================================= */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 600ms ease, transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* stagger children when [data-reveal-children] is set on a container */
+[data-reveal-children] > [data-reveal] {
+    transition-delay: calc(var(--reveal-i, 0) * 90ms);
+}
+
+/* =============================================================
+   Upgraded card hover (project + photography categories)
+   ============================================================= */
+.card,
+.category-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* corner brackets that draw in on hover */
+.card .corner,
+.category-card .corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 220ms ease, width 240ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                height 240ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    z-index: 2;
+}
+.card .corner { border-color: rgba(72, 224, 214, 0.85); }
+.category-card .corner { border-color: rgba(255, 255, 255, 0.85); }
+
+.card .corner.tl,
+.category-card .corner.tl {
+    top: 10px; left: 10px;
+    border-top: 1.5px solid;
+    border-left: 1.5px solid;
+}
+.card .corner.tr,
+.category-card .corner.tr {
+    top: 10px; right: 10px;
+    border-top: 1.5px solid;
+    border-right: 1.5px solid;
+}
+.card .corner.bl,
+.category-card .corner.bl {
+    bottom: 10px; left: 10px;
+    border-bottom: 1.5px solid;
+    border-left: 1.5px solid;
+}
+.card .corner.br,
+.category-card .corner.br {
+    bottom: 10px; right: 10px;
+    border-bottom: 1.5px solid;
+    border-right: 1.5px solid;
+}
+
+.card:hover .corner,
+.category-card:hover .corner {
+    opacity: 1;
+}
+
+/* diagonal sheen sweeps once on hover */
+.card::before,
+.category-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(110deg,
+        transparent 0%,
+        rgba(72, 224, 214, 0.0) 40%,
+        rgba(72, 224, 214, 0.18) 50%,
+        rgba(72, 224, 214, 0.0) 60%,
+        transparent 100%);
+    transform: translateX(0) rotate(8deg);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 220ms ease;
+}
+
+.card:hover::before,
+.category-card:hover::before {
+    opacity: 1;
+    animation: card-sheen 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes card-sheen {
+    from { transform: translateX(0) rotate(8deg); }
+    to   { transform: translateX(420%) rotate(8deg); }
+}
+
+/* keep card content above sheen */
+.card > *,
+.category-card > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* upgrade the existing hover lift with teal title + filled button */
+.card {
+    transition: transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                border-color 260ms ease,
+                box-shadow 260ms ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(72, 224, 214, 0.6);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(72, 224, 214, 0.25),
+                0 0 24px rgba(72, 224, 214, 0.15);
+}
+
+.card:hover .card-text h3 {
+    color: var(--teal);
+    transition: color 260ms ease;
+}
+
+.card:hover .card-button {
+    background: rgba(72, 224, 214, 0.45);
+    border-color: rgba(72, 224, 214, 0.85);
+    color: #061321;
+    transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+
+.card .card-text h3 { transition: color 260ms ease; }
+
+/* photo-card — gentler sheen via the same ::before, plus border lift */
+.photo-card { position: relative; overflow: hidden; }
+.photo-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(110deg,
+        transparent 0%,
+        rgba(72, 224, 214, 0.18) 50%,
+        transparent 100%);
+    transform: translateX(0) rotate(8deg);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 220ms ease;
+}
+.photo-card:hover::before {
+    opacity: 1;
+    animation: card-sheen 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* =============================================================
+   Reduced motion: turn off everything that moves
+   ============================================================= */
+@media (prefers-reduced-motion: reduce) {
+    .boot-scanline,
+    .boot-scanline::before,
+    .boot-scanline::after { display: none !important; }
+
+    html.boot-controlled .topbar,
+    html.boot-controlled .hero-card,
+    html.boot-controlled .hero-card-header,
+    html.boot-controlled .hero-portrait,
+    html.boot-controlled .hero-card-footer,
+    html.boot-controlled .hero-card-actions,
+    html.boot-controlled .hero-content > *,
+    html.boot-controlled .status-text {
+        opacity: 1 !important;
+        transform: none !important;
+        max-width: none !important;
+        transition: none !important;
+    }
+
+    .hero-card,
+    .hero-card.is-tilting,
+    .hero-portrait .portrait-glow,
+    .hero-portrait img,
+    .hero-portrait .portrait-scrim,
+    .hero-portrait .portrait-corner {
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .card::before,
+    .category-card::before,
+    .photo-card::before { display: none !important; }
+
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* =============================================================
+   Mobile: drop tilt, simplify
+   ============================================================= */
+@media (max-width: 900px) {
+    .hero-card,
+    .hero-card.is-tilting {
+        transform: none !important;
+    }
+    .hero-portrait .portrait-glow,
+    .hero-portrait img,
+    .hero-portrait .portrait-scrim,
+    .hero-portrait .portrait-corner {
+        transform: none !important;
+    }
+    .hero-card::before { display: none; }
+}
