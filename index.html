@@ -121,18 +121,95 @@
                 <p>Selected missions from the build queue.</p>
             </div>
             <div class="project-info lobby-grid">
-                <div class="card">
+                <div class="card card-featured" data-modal>
+                    <div class="card-badge-row">
+                        <span class="card-star"><i class="fa-solid fa-star"></i></span>
+                    </div>
+                    <img src="images/tracker_logo.png" alt="Application Tracker Logo" class="card-img">
+                    <div class="card-text">
+                        <h3>Application Tracker</h3>
+                        <div class="card-tech">
+                            <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>OpenAI</span><span>Gmail API</span><span>Vercel</span>
+                        </div>
+                        <p>Scans your Gmail inbox with GPT-4o-mini to automatically detect co-op applications and status updates, achieving 96% accuracy — deployed live on Vercel.</p>
+                        <div class="card-actions">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <button class="card-button">View Project</button>
+                            </a>
+                            <span class="card-hint">Click card for details</span>
+                        </div>
+                    </div>
+                    <ul class="card-bullets" hidden>
+                        <li>Built, tested, and deployed an application tracking system on Vercel that scans recent emails for keywords and surfaces relevant suggestions for user review, achieving <strong>96% accuracy</strong> in identifying relevant emails.</li>
+                        <li>Implemented Google OAuth and Gmail API integration to securely read emails and classify messages with <strong>GPT-4o-mini</strong> as new applications or status updates, surfacing confidence scores and reasoning for user review.</li>
+                        <li>Built a server-side data layer with per-user row scoping, two-layer Zod validation, and audit logging for every change.</li>
+                    </ul>
+                </div>
+                <div class="card" data-modal>
+                    <div class="card-badge-row"><span class="card-star card-star--ghost"><i class="fa-solid fa-star"></i></span></div>
+                    <img src="images/mindmaplogo.png" alt="AI Mind Mapping Web App Logo" class="card-img">
+                    <div class="card-text">
+                        <h3>AI Mind Mapping Web App</h3>
+                        <div class="card-tech">
+                            <span>React</span><span>Node.js</span><span>Express.js</span><span>PostgreSQL</span><span>Docker</span>
+                        </div>
+                        <p>Full-stack mind mapping app across 4 Dockerized microservices with an AI insight engine that surfaces the top 5 semantically related connections using OpenAI Embeddings.</p>
+                        <div class="card-actions">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <button class="card-button">View Project</button>
+                            </a>
+                            <span class="card-hint">Click card for details</span>
+                        </div>
+                    </div>
+                    <ul class="card-bullets" hidden>
+                        <li>Built a full-stack web application across <strong>4 Dockerized microservices</strong>, including a React front end, Node.js/Express.js REST API, PostgreSQL database, and a Python FastAPI service.</li>
+                        <li>Developed an AI-powered insight engine using OpenAI Embeddings and GPT-4o to compute cosine similarity between nodes, surfacing the top <strong>5 semantically related connections</strong> to reveal non-obvious idea relationships.</li>
+                        <li>Strengthened security with server-side session authentication using HttpOnly cookies, bcrypt password hashing at <strong>12 salt rounds</strong>, and a RESTful API across 8 endpoints enforcing session validation for user data access.</li>
+                    </ul>
+                </div>
+                <div class="card" data-modal>
+                    <div class="card-badge-row"><span class="card-star card-star--ghost"><i class="fa-solid fa-star"></i></span></div>
+                    <div class="card-icon-wrap">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>F1 Telemetry Analysis</h3>
+                        <div class="card-tech">
+                            <span>Python</span><span>pandas</span><span>FastF1</span><span>scikit-learn</span><span>Matplotlib</span>
+                        </div>
+                        <p>End-to-end Python pipeline analyzing F1 qualifying telemetry across 4,446 driver comparisons, with a Random Forest model achieving MAE of 0.223s and R² of 0.72.</p>
+                        <div class="card-actions">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <button class="card-button">View Project</button>
+                            </a>
+                            <span class="card-hint">Click card for details</span>
+                        </div>
+                    </div>
+                    <ul class="card-bullets" hidden>
+                        <li>Built an end-to-end Python data pipeline to ingest, clean, and preprocess F1 qualifying telemetry from the FastF1 API, engineering speed, throttle, and braking features across <strong>4,446 driver comparisons</strong>.</li>
+                        <li>Trained a <strong>Random Forest</strong> regression model to predict lap-time deltas between driver pairs, achieving a MAE of <strong>0.223s</strong> and R² of <strong>0.72</strong> while outperforming a hand-tuned weighted baseline model.</li>
+                        <li>Designed the evaluation approach using GroupShuffleSplit to hold out <strong>20%</strong> of race weekends as the test set, preventing data leakage between sessions from the same event and improving the reliability of model generalization.</li>
+                    </ul>
+                </div>
+                <div class="card" data-modal>
                     <img src="images/lazy_paste.png" alt="LazyPaste Logo" class="card-img">
                     <div class="card-text">
                         <h3>LazyPaste</h3>
-                        <p>LazyPaste is your ultimate productivity companion. Whether you're drafting professional
-                            documents, taking detailed notes, or brainstorming creative ideas, LazyPaste handles the
-                            heavy lifting.</p>
-                        <a href="https://github.com/VinierCape43081/LazyTyper" target="_blank"
-                            rel="noopener noreferrer">
-                            <button class="card-button">View Project</button>
-                        </a>
+                        <div class="card-tech">
+                            <span>JavaScript</span><span>OpenAI API</span><span>Google Docs API</span>
+                        </div>
+                        <p>A Chrome extension integrating the OpenAI API directly into Google Docs for context-aware text generation at up to 240 WPM.</p>
+                        <div class="card-actions">
+                            <a href="https://github.com/VinierCape43081/LazyTyper" target="_blank" rel="noopener noreferrer">
+                                <button class="card-button">View Project</button>
+                            </a>
+                            <span class="card-hint">Click card for details</span>
+                        </div>
                     </div>
+                    <ul class="card-bullets" hidden>
+                        <li>Designed and implemented a Google Chrome extension in JavaScript that integrates the OpenAI API directly into Google Docs, delivering context-aware text generation at up to <strong>240 WPM</strong>.</li>
+                        <li>Improved extension reliability by implementing OAuth2 authentication via chrome.identity and chunked text insertion through the Google Docs batchUpdate API, ensuring accurate AI output within documents.</li>
+                    </ul>
                 </div>
                 <div class="card">
                     <img src="images/chess4all.png" alt="chess4all Logo" class="card-img1">
@@ -149,6 +226,23 @@
             </div>
         </section>
     </main>
+
+    <div class="project-modal">
+        <div class="project-modal__backdrop"></div>
+        <div class="project-modal__panel">
+            <div class="project-modal__header">
+                <div>
+                    <h3 class="project-modal__title"></h3>
+                    <div class="project-modal__tech"></div>
+                </div>
+                <button class="project-modal__close">ESC</button>
+            </div>
+            <ul class="project-modal__bullets"></ul>
+            <a class="project-modal__link" href="#" target="_blank" rel="noopener noreferrer">
+                <button class="card-button">View Project</button>
+            </a>
+        </div>
+    </div>
     <script>
         $(function () {
             $("#navbar").load("nav.html", function () {
@@ -157,6 +251,43 @@
                 }
             });
         });
+    </script>
+    <script>
+        (function () {
+            const modal = document.querySelector('.project-modal');
+            const mTitle = modal.querySelector('.project-modal__title');
+            const mTech = modal.querySelector('.project-modal__tech');
+            const mBullets = modal.querySelector('.project-modal__bullets');
+            const mLink = modal.querySelector('.project-modal__link');
+
+            function openModal(card) {
+                mTitle.textContent = card.querySelector('.card-text h3').textContent;
+                const techEl = card.querySelector('.card-tech');
+                mTech.innerHTML = techEl ? techEl.innerHTML : '';
+                const bullets = [...card.querySelectorAll('.card-bullets li')];
+                mBullets.innerHTML = bullets.map(li => `<li>${li.innerHTML}</li>`).join('');
+                const linkEl = card.querySelector('a[href]');
+                mLink.href = linkEl ? linkEl.getAttribute('href') : '#';
+                modal.classList.add('is-open');
+                document.body.classList.add('modal-open');
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-open');
+                document.body.classList.remove('modal-open');
+            }
+
+            document.querySelectorAll('.card[data-modal]').forEach(card => {
+                card.addEventListener('click', e => {
+                    if (e.target.closest('a') || e.target.closest('button')) return;
+                    openModal(card);
+                });
+            });
+
+            modal.querySelector('.project-modal__backdrop').addEventListener('click', closeModal);
+            modal.querySelector('.project-modal__close').addEventListener('click', closeModal);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+        })();
     </script>
 
 </body>

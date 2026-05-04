@@ -388,6 +388,49 @@ a {
     width: 100%;
 }
 
+.project-info.lobby-grid {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.project-info.lobby-grid .card {
+    grid-column: span 2;
+}
+
+.project-info.lobby-grid .card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.project-info.lobby-grid .card:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+@media (max-width: 900px) {
+    .project-info.lobby-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .project-info.lobby-grid .card {
+        grid-column: span 2;
+    }
+
+    .project-info.lobby-grid .card:nth-child(4),
+    .project-info.lobby-grid .card:nth-child(5) {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 560px) {
+    .project-info.lobby-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-info.lobby-grid .card,
+    .project-info.lobby-grid .card:nth-child(4),
+    .project-info.lobby-grid .card:nth-child(5) {
+        grid-column: span 1;
+    }
+}
+
 .card {
     background: var(--bg-panel);
     border: 1px solid var(--stroke);
@@ -641,6 +684,12 @@ a {
     }
 }
 
+.card-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .card-text h3 {
     margin: 0;
     font-size: 1.6rem;
@@ -652,6 +701,201 @@ a {
     margin-top: 0;
     color: var(--muted);
     line-height: 1.7;
+    flex: 1;
+}
+
+.card-actions,
+.card-text > a {
+    margin-top: auto;
+}
+
+.project-info .card img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.project-info .card-icon-wrap {
+    height: 100px;
+}
+
+.card-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    font-size: 3rem;
+    color: var(--teal);
+    background: rgba(72, 224, 214, 0.08);
+    border: 1px solid rgba(72, 224, 214, 0.2);
+    border-radius: 12px;
+    margin-bottom: 0.25rem;
+}
+
+.card-featured {
+    border-color: rgba(243, 186, 47, 0.45);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 20px rgba(243, 186, 47, 0.1);
+}
+
+.card-featured:hover {
+    border-color: rgba(243, 186, 47, 0.7);
+}
+
+.card-badge-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-star--ghost {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card-star {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: rgba(243, 186, 47, 0.15);
+    border: 1px solid rgba(243, 186, 47, 0.5);
+    color: #f3ba2f;
+}
+
+.card[data-modal] {
+    cursor: pointer;
+}
+
+.card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-tech span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(72, 224, 214, 0.08);
+    border: 1px solid rgba(72, 224, 214, 0.25);
+    color: var(--teal);
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.card-hint {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.55;
+}
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.project-modal.is-open {
+    display: flex;
+}
+
+.project-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 11, 20, 0.75);
+    backdrop-filter: blur(6px);
+}
+
+.project-modal__panel {
+    position: relative;
+    z-index: 1;
+    width: min(680px, 90vw);
+    background: rgba(10, 26, 41, 0.95);
+    border: 1px solid rgba(120, 170, 210, 0.35);
+    border-radius: 18px;
+    padding: 1.75rem;
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.5);
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.project-modal__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.project-modal__title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-modal__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.project-modal__close {
+    border: 1px solid rgba(120, 170, 210, 0.4);
+    background: transparent;
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Teko", sans-serif;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.project-modal__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.project-modal__bullets li {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-left: 1.4rem;
+    position: relative;
+}
+
+.project-modal__bullets li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+}
+
+.project-modal__bullets li strong {
+    color: var(--text);
 }
 
 .card-button {
