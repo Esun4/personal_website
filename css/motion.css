@@ -461,12 +461,6 @@ html.boot-controlled.boot-step-2 .hero-content > * {
     transition: color 260ms ease;
 }
 
-.card:hover .card-button {
-    background: rgba(72, 224, 214, 0.45);
-    border-color: rgba(72, 224, 214, 0.85);
-    color: #061321;
-    transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
-}
 
 .card .card-text h3 { transition: color 260ms ease; }
 
