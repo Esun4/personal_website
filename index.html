@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/f44c19555e.js" crossorigin="anonymous"></script>
@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/motion.css">
+    <link rel="stylesheet" href="css/timeline.css">
     <script src="js/motion.js" defer></script>
+    <script src="js/timeline.js" defer></script>
     <title>Ethan Sun</title>
 </head>
 
@@ -117,133 +119,248 @@
         </section>
         <section id="projects-section" class="lobby-section">
             <div class="section-header">
-                <h2>Projects</h2>
-                <p>Selected missions from the build queue.</p>
+                <span class="eyebrow">// MISSION_LOG</span>
+                <h2><span class="accent">Projects</span></h2>
+                <p>Scroll to see projects.</p>
+                <div class="header-meta">
+                    <span>Patch v2.4.0</span>
+                    <span class="count" id="meta-count">05 / 05 projects</span>
+                </div>
             </div>
-            <div class="project-info lobby-grid">
-                <div class="card card-featured" data-modal>
-                    <div class="card-badge-row">
-                        <span class="card-star"><i class="fa-solid fa-star"></i></span>
-                    </div>
-                    <img src="images/tracker_logo.png" alt="Application Tracker Logo" class="card-img">
-                    <div class="card-text">
-                        <h3>Application Tracker</h3>
-                        <div class="card-tech">
-                            <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>OpenAI</span><span>Gmail API</span><span>Vercel</span>
-                        </div>
-                        <p>Scans your Gmail inbox with GPT-4o-mini to automatically detect co-op applications and status updates, achieving 96% accuracy — deployed live on Vercel.</p>
-                        <div class="card-actions">
-                            <a href="http://coop-tracker1.vercel.app/" target="_blank" rel="noopener noreferrer">
-                                <button class="card-button">Link</button>
-                            </a>
-                            <a href="https://github.com/Esun4/coop-tracker" target="_blank" rel="noopener noreferrer">
-                                <button class="card-button">Github</button>
-                            </a>
-                            <span class="card-hint">Click card for details</span>
-                        </div>
-                    </div>
-                    <ul class="card-bullets" hidden>
-                        <li>Built, tested, and deployed an application tracking system on Vercel that scans recent emails for keywords and surfaces relevant suggestions for user review, achieving <strong>96% accuracy</strong> in identifying relevant emails.</li>
-                        <li>Implemented Google OAuth and Gmail API integration to securely read emails and classify messages with <strong>GPT-4o-mini</strong> as new applications or status updates, surfacing confidence scores and reasoning for user review.</li>
-                        <li>Built a server-side data layer with per-user row scoping, two-layer Zod validation, and audit logging for every change.</li>
-                    </ul>
-                </div>
-                <div class="card" data-modal>
-                    <div class="card-badge-row"><span class="card-star card-star--ghost"><i class="fa-solid fa-star"></i></span></div>
-                    <img src="images/mindmaplogo.png" alt="AI Mind Mapping Web App Logo" class="card-img">
-                    <div class="card-text">
-                        <h3>AI Mind Mapping Web App</h3>
-                        <div class="card-tech">
-                            <span>React</span><span>Node.js</span><span>Express.js</span><span>PostgreSQL</span><span>Docker</span>
-                        </div>
-                        <p>Full-stack mind mapping app across 4 Dockerized microservices with an AI insight engine that surfaces the top 5 semantically related connections using OpenAI Embeddings.</p>
-                        <div class="card-actions">
-                            <a href="https://github.com/Esun4/Nodality.ai" target="_blank" rel="noopener noreferrer">
-                                <button class="card-button">Github</button>
-                            </a>
-                            <span class="card-hint">Click card for details</span>
-                        </div>
-                    </div>
-                    <ul class="card-bullets" hidden>
-                        <li>Built a full-stack web application across <strong>4 Dockerized microservices</strong>, including a React front end, Node.js/Express.js REST API, PostgreSQL database, and a Python FastAPI service.</li>
-                        <li>Developed an AI-powered insight engine using OpenAI Embeddings and GPT-4o to compute cosine similarity between nodes, surfacing the top <strong>5 semantically related connections</strong> to reveal non-obvious idea relationships.</li>
-                        <li>Strengthened security with server-side session authentication using HttpOnly cookies, bcrypt password hashing at <strong>12 salt rounds</strong>, and a RESTful API across 8 endpoints enforcing session validation for user data access.</li>
-                    </ul>
-                </div>
-                <div class="card" data-modal>
-                    <div class="card-badge-row"><span class="card-star card-star--ghost"><i class="fa-solid fa-star"></i></span></div>
-                    <img src="images/f1_logo.webp" alt="F1 Telemetry Analysis Logo" class="card-img">
-                    <div class="card-text">
-                        <h3>F1 Telemetry Analysis</h3>
-                        <div class="card-tech">
-                            <span>Python</span><span>pandas</span><span>FastF1</span><span>scikit-learn</span><span>Matplotlib</span>
-                        </div>
-                        <p>End-to-end Python pipeline analyzing F1 qualifying telemetry across 4,446 driver comparisons, with a Random Forest model achieving MAE of 0.223s and R² of 0.72.</p>
-                        <div class="card-actions">
-                            <a href="https://github.com/Esun4/f1" target="_blank" rel="noopener noreferrer">
-                                <button class="card-button">Github</button>
-                            </a>
-                            <span class="card-hint">Click card for details</span>
+
+            <div class="timeline" id="timeline">
+                <div class="timeline-progress" id="timelineProgress"></div>
+                <div class="timeline-spark" id="timelineSpark"></div>
+
+                <!-- ROW 1 — Application Tracker (featured) -->
+                <article class="tl-row" data-side="left">
+                    <div class="tl-card-slot left">
+                        <div class="tl-card featured">
+                            <span class="corner tl"></span><span class="corner tr"></span>
+                            <span class="corner bl"></span><span class="corner br"></span>
+                            <span class="tl-index">01 / 05</span>
+                            <div class="tl-card-header">
+                                <div class="tl-card-logo">
+                                    <img src="images/tracker_logo.png" alt="Application Tracker" />
+                                </div>
+                                <div class="tl-card-titlewrap">
+                                    <h3>Application Tracker</h3>
+                                    <span class="tl-card-status">
+                                        <span class="dot"></span> Deployed · Live on Vercel
+                                    </span>
+                                </div>
+                                <span class="tl-card-badge"><i class="fa-solid fa-star"></i> Featured</span>
+                            </div>
+                            <div class="tl-tech">
+                                <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span>
+                                <span>OpenAI</span><span>Gmail API</span><span>Vercel</span>
+                            </div>
+                            <div class="tl-stats">
+                                <div class="s"><span class="s-label">Accuracy</span><span class="s-value">96%</span></div>
+                                <div class="s"><span class="s-label">Endpoints</span><span class="s-value">12+</span></div>
+                                <div class="s"><span class="s-label">Status</span><span class="s-value">Live</span></div>
+                            </div>
+                            <div class="tl-actions">
+                                <a class="tl-btn primary" href="http://coop-tracker1.vercel.app/" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Link
+                                </a>
+                                <a class="tl-btn ghost" href="https://github.com/Esun4/coop-tracker" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <ul class="card-bullets" hidden>
-                        <li>Built an end-to-end Python data pipeline to ingest, clean, and preprocess F1 qualifying telemetry from the FastF1 API, engineering speed, throttle, and braking features across <strong>4,446 driver comparisons</strong>.</li>
-                        <li>Trained a <strong>Random Forest</strong> regression model to predict lap-time deltas between driver pairs, achieving a MAE of <strong>0.223s</strong> and R² of <strong>0.72</strong> while outperforming a hand-tuned weighted baseline model.</li>
-                        <li>Designed the evaluation approach using GroupShuffleSplit to hold out <strong>20%</strong> of race weekends as the test set, preventing data leakage between sessions from the same event and improving the reliability of model generalization.</li>
-                    </ul>
-                </div>
-                <div class="card" data-modal>
-                    <img src="images/lazy_paste.png" alt="LazyPaste Logo" class="card-img">
-                    <div class="card-text">
-                        <h3>LazyPaste</h3>
-                        <div class="card-tech">
-                            <span>JavaScript</span><span>OpenAI API</span><span>Google Docs API</span>
-                        </div>
-                        <p>A Chrome extension integrating the OpenAI API directly into Google Docs for context-aware text generation at up to 240 WPM.</p>
-                        <div class="card-actions">
-                            <a href="https://github.com/VinierCape43081/LazyTyper" target="_blank" rel="noopener noreferrer">
-                                <button class="card-button">Github</button>
-                            </a>
-                            <span class="card-hint">Click card for details</span>
+                    <div class="tl-marker">
+                        <div class="tl-node"></div>
+                        <div class="tl-connector"></div>
+                    </div>
+                    <div class="tl-card-slot right desc-slot">
+                        <div class="tl-desc">
+                            <p>Scans your Gmail inbox with GPT-4o-mini to automatically detect co-op applications and status updates — surfacing confidence scores and reasoning for every classification.</p>
                         </div>
                     </div>
-                    <ul class="card-bullets" hidden>
-                        <li>Designed and implemented a Google Chrome extension in JavaScript that integrates the OpenAI API directly into Google Docs, delivering context-aware text generation at up to <strong>240 WPM</strong>.</li>
-                        <li>Improved extension reliability by implementing OAuth2 authentication via chrome.identity and chunked text insertion through the Google Docs batchUpdate API, ensuring accurate AI output within documents.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <img src="images/chess4all.png" alt="chess4all Logo" class="card-img1">
-                    <div class="card-text">
-                        <h3>chess4all</h3>
-                        <p>chess4all is a website for chess lovers to study and sharpen their skills. It offers detailed
-                            endgame walkthroughs, interactive puzzles, and classic games played by chess masters.</p>
-                        <a href="https://github.com/MHS-CSCE/sdp-chess4all" target="_blank"
-                            rel="noopener noreferrer">
-                            <button class="card-button">Github</button>
-                        </a>
+                </article>
+
+                <!-- ROW 2 — Nodality.ai -->
+                <article class="tl-row" data-side="right">
+                    <div class="tl-card-slot left desc-slot">
+                        <div class="tl-desc">
+                            <p>Full-stack mind-mapping app across 4 Dockerized microservices with an AI insight engine that surfaces the top semantically related connections using OpenAI Embeddings + cosine similarity.</p>
+                        </div>
                     </div>
-                </div>
+                    <div class="tl-marker">
+                        <div class="tl-node"></div>
+                        <div class="tl-connector"></div>
+                    </div>
+                    <div class="tl-card-slot right">
+                        <div class="tl-card">
+                            <span class="corner tl"></span><span class="corner tr"></span>
+                            <span class="corner bl"></span><span class="corner br"></span>
+                            <span class="tl-index">02 / 05</span>
+                            <div class="tl-card-header">
+                                <div class="tl-card-logo">
+                                    <img src="images/mindmaplogo.png" alt="Nodality.ai" />
+                                </div>
+                                <div class="tl-card-titlewrap">
+                                    <h3>Nodality.ai</h3>
+                                    <span class="tl-card-status">
+                                        <span class="dot"></span> Open Source · 4 services
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tl-tech">
+                                <span>React</span><span>Node.js</span><span>Express.js</span>
+                                <span>PostgreSQL</span><span>Docker</span><span>FastAPI</span>
+                            </div>
+                            <div class="tl-stats">
+                                <div class="s"><span class="s-label">Services</span><span class="s-value">4</span></div>
+                                <div class="s"><span class="s-label">Endpoints</span><span class="s-value">8</span></div>
+                                <div class="s"><span class="s-label">Insights</span><span class="s-value">Top 5</span></div>
+                            </div>
+                            <div class="tl-actions">
+                                <a class="tl-btn primary" href="https://github.com/Esun4/Nodality.ai" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ROW 3 — F1 Telemetry -->
+                <article class="tl-row" data-side="left">
+                    <div class="tl-card-slot left">
+                        <div class="tl-card">
+                            <span class="corner tl"></span><span class="corner tr"></span>
+                            <span class="corner bl"></span><span class="corner br"></span>
+                            <span class="tl-index">03 / 05</span>
+                            <div class="tl-card-header">
+                                <div class="tl-card-logo">
+                                    <img src="images/f1_logo.webp" alt="F1 Telemetry" />
+                                </div>
+                                <div class="tl-card-titlewrap">
+                                    <h3>F1 Telemetry Analysis</h3>
+                                    <span class="tl-card-status">
+                                        <span class="dot"></span> Research · Notebook
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tl-tech">
+                                <span>Python</span><span>pandas</span><span>FastF1</span>
+                                <span>scikit-learn</span><span>Matplotlib</span>
+                            </div>
+                            <div class="tl-stats">
+                                <div class="s"><span class="s-label">Samples</span><span class="s-value">4,446</span></div>
+                                <div class="s"><span class="s-label">MAE</span><span class="s-value">0.223s</span></div>
+                                <div class="s"><span class="s-label">R²</span><span class="s-value">0.72</span></div>
+                            </div>
+                            <div class="tl-actions">
+                                <a class="tl-btn primary" href="https://github.com/Esun4/f1" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tl-marker">
+                        <div class="tl-node"></div>
+                        <div class="tl-connector"></div>
+                    </div>
+                    <div class="tl-card-slot right desc-slot">
+                        <div class="tl-desc">
+                            <p>End-to-end pipeline analyzing F1 qualifying telemetry across 4,446 driver comparisons. Random Forest model predicts lap-time deltas, outperforming a hand-tuned weighted baseline.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ROW 4 — LazyPaste -->
+                <article class="tl-row" data-side="right">
+                    <div class="tl-card-slot left desc-slot">
+                        <div class="tl-desc">
+                            <p>A Chrome extension integrating the OpenAI API directly into Google Docs for context-aware text generation, delivered through chunked batchUpdate calls so the document stays in sync.</p>
+                        </div>
+                    </div>
+                    <div class="tl-marker">
+                        <div class="tl-node"></div>
+                        <div class="tl-connector"></div>
+                    </div>
+                    <div class="tl-card-slot right">
+                        <div class="tl-card">
+                            <span class="corner tl"></span><span class="corner tr"></span>
+                            <span class="corner bl"></span><span class="corner br"></span>
+                            <span class="tl-index">04 / 05</span>
+                            <div class="tl-card-header">
+                                <div class="tl-card-logo">
+                                    <img src="images/lazy_paste.png" alt="LazyPaste" />
+                                </div>
+                                <div class="tl-card-titlewrap">
+                                    <h3>LazyPaste</h3>
+                                    <span class="tl-card-status">
+                                        <span class="dot"></span> Chrome Extension
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tl-tech">
+                                <span>JavaScript</span><span>OpenAI API</span><span>Google Docs API</span><span>OAuth2</span>
+                            </div>
+                            <div class="tl-stats">
+                                <div class="s"><span class="s-label">Throughput</span><span class="s-value">240 WPM</span></div>
+                                <div class="s"><span class="s-label">Auth</span><span class="s-value">OAuth2</span></div>
+                            </div>
+                            <div class="tl-actions">
+                                <a class="tl-btn primary" href="https://github.com/VinierCape43081/LazyTyper" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ROW 5 — chess4all -->
+                <article class="tl-row" data-side="left">
+                    <div class="tl-card-slot left">
+                        <div class="tl-card">
+                            <span class="corner tl"></span><span class="corner tr"></span>
+                            <span class="corner bl"></span><span class="corner br"></span>
+                            <span class="tl-index">05 / 05</span>
+                            <div class="tl-card-header">
+                                <div class="tl-card-logo">
+                                    <img src="images/chess4all.png" alt="chess4all" />
+                                </div>
+                                <div class="tl-card-titlewrap">
+                                    <h3>chess4all</h3>
+                                    <span class="tl-card-status">
+                                        <span class="dot"></span> Team project · Capstone
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tl-tech">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Chess.js</span>
+                            </div>
+                            <div class="tl-actions">
+                                <a class="tl-btn primary" href="https://github.com/MHS-CSCE/sdp-chess4all" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tl-marker">
+                        <div class="tl-node"></div>
+                        <div class="tl-connector"></div>
+                    </div>
+                    <div class="tl-card-slot right desc-slot">
+                        <div class="tl-desc">
+                            <p>A learning site for chess enthusiasts — detailed endgame walkthroughs, interactive puzzles, and a curated library of classic games played by masters.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="tl-end">
+                <div class="tl-end-node"></div>
+                <div class="tl-end-label">// END OF <span class="accent">PROJECTS</span></div>
             </div>
         </section>
     </main>
 
-    <div class="project-modal">
-        <div class="project-modal__backdrop"></div>
-        <div class="project-modal__panel">
-            <div class="project-modal__header">
-                <div>
-                    <h3 class="project-modal__title"></h3>
-                    <div class="project-modal__tech"></div>
-                </div>
-                <button class="project-modal__close">ESC</button>
-            </div>
-            <ul class="project-modal__bullets"></ul>
-            <a class="project-modal__link" href="#" target="_blank" rel="noopener noreferrer">
-                <button class="card-button">Github</button>
-            </a>
-        </div>
-    </div>
     <script>
         $(function () {
             $("#navbar").load("nav.html", function () {
@@ -252,43 +369,6 @@
                 }
             });
         });
-    </script>
-    <script>
-        (function () {
-            const modal = document.querySelector('.project-modal');
-            const mTitle = modal.querySelector('.project-modal__title');
-            const mTech = modal.querySelector('.project-modal__tech');
-            const mBullets = modal.querySelector('.project-modal__bullets');
-            const mLink = modal.querySelector('.project-modal__link');
-
-            function openModal(card) {
-                mTitle.textContent = card.querySelector('.card-text h3').textContent;
-                const techEl = card.querySelector('.card-tech');
-                mTech.innerHTML = techEl ? techEl.innerHTML : '';
-                const bullets = [...card.querySelectorAll('.card-bullets li')];
-                mBullets.innerHTML = bullets.map(li => `<li>${li.innerHTML}</li>`).join('');
-                const linkEl = card.querySelector('a[href]');
-                mLink.href = linkEl ? linkEl.getAttribute('href') : '#';
-                modal.classList.add('is-open');
-                document.body.classList.add('modal-open');
-            }
-
-            function closeModal() {
-                modal.classList.remove('is-open');
-                document.body.classList.remove('modal-open');
-            }
-
-            document.querySelectorAll('.card[data-modal]').forEach(card => {
-                card.addEventListener('click', e => {
-                    if (e.target.closest('a') || e.target.closest('button')) return;
-                    openModal(card);
-                });
-            });
-
-            modal.querySelector('.project-modal__backdrop').addEventListener('click', closeModal);
-            modal.querySelector('.project-modal__close').addEventListener('click', closeModal);
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-        })();
     </script>
 
 </body>
